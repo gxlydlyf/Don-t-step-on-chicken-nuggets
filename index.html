@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <noscript>
+        <div style="font-size: 100pt">退!退!退!退!退!退！不要禁用JavaScript!</div>
+        <meta http-equiv="refresh" content="0; url=https://cn.bing.com/"/>
+    </noscript>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
+    <meta charset="UTF-8">
+    <title>别踩鸡块</title>
+    <style>
+        html{height:100%;}
+    body{height:100%; margin:0;}</style>
+</head>
+<body draggable="false">
+<div style="display: block" id="wangge">
+  <span style="width: 0.09px;background-color: red;height: 100%;position: fixed;left: 0;top: 0;z-index: 10"></span>
+  <span style="width: 0.09px;background-color: red;height: 100%;position: fixed;left: 25%;top: 0;z-index: 10"></span>
+  <span style="width: 0.09px;background-color: red;height: 100%;position: fixed;left: 50%;top: 0;z-index: 10"></span>
+  <span style="width: 0.09px;background-color: red;height: 100%;position: fixed;left: 75%;top: 0;z-index: 10"></span>
+  <span style="width: 0.09px;background-color: red;height: 100%;position: fixed;right: 0;top: 0;z-index: 10"></span>
+
+  <span style="width: 100%;background-color: red;height: 0.09px;position: fixed;left: 0;top: 20%;z-index: 10"></span>
+  <span style="width: 100%;background-color: red;height: 0.09px;position: fixed;left: 0;top: 40%;z-index: 10"></span>
+  <span style="width: 100%;background-color: red;height: 0.09px;position: fixed;left: 0;top: 60%;z-index: 10"></span>
+  <span style="width: 100%;background-color: red;height: 0.09px;position: fixed;left: 0;top: 80%;z-index: 10"></span>
+  <span style="width: 100%;background-color: red;height: 0.09px;position: fixed;left: 0;top: 100%;z-index: 10"></span>
+</div><!--网格-->
+
+<div>
+  <span class="jikuai" style="top: 0" id="jikuai5" onclick="kuai5()" onmousedown="kuai5()" ondblclick="kuai5()" oncontextmenu="document.oncontextmenu=new Function('return false');kuai5()"><img src="is/坤坤5.png" style="width: 100%;height: 100%;user-select: none;-o-user-select: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;" id="kuaiimg5" draggable="false"></span>
+  <span class="jikuai" style="top: 20%" id="jikuai4" onclick="kuai4()" onmousedown="kuai4()" ondblclick="kuai4()" oncontextmenu="document.oncontextmenu=new Function('return false');kuai4()"><img src="is/坤坤5.png" style="width: 100%;height: 100%;user-select: none;-o-user-select: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;" id="kuaiimg4" draggable="false"></span>
+  <span class="jikuai" style="top: 40%" id="jikuai3" onclick="kuai3()" onmousedown="kuai3()" ondblclick="kuai3()" oncontextmenu="document.oncontextmenu=new Function('return false');kuai3()"><img src="is/坤坤5.png" style="width: 100%;height: 100%;user-select: none;-o-user-select: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;" id="kuaiimg3" draggable="false"></span>
+  <span class="jikuai" style="top: 60%" id="jikuai2" onclick="kuai2()" onmousedown="kuai2()" ondblclick="kuai2()" oncontextmenu="document.oncontextmenu=new Function('return false');kuai2()"><img src="is/坤坤5.png" style="width: 100%;height: 100%;user-select: none;-o-user-select: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;" id="kuaiimg2" draggable="false"></span>
+  <span class="jikuai" style="top: 80%" id="jikuai1" onclick="kuai1()" onmousedown="kuai1()" ondblclick="kuai1()" oncontextmenu="document.oncontextmenu=new Function('return false');kuai1()"><img src="is/坤坤5.png" style="width: 100%;height: 100%;user-select: none;-o-user-select: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;" id="kuaiimg1" draggable="false"></span>
+</div><!--鸡块-->
+<div style="width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,0,0,0)" onclick="nishule()" onmousedown="nishule()" ondblclick="nishule()"></div>
+<div style="background-color: red;width: 100%;height: 100%;position: absolute;top: 0;left: 0;display: none;transition-timing-function: ease;transition-duration: 0.3s;z-index: 50" id="jieshu"><center>
+    <h1 style="z-index: 20">你干嘛，哎呦</h1>
+    <img src="./is/坤坤8.png" style="z-index: 20;width: 20%;">
+    <h1 id="defen">你的得分是:</h1>
+    <style>
+        .bbbbbtnkuosan {
+            position: relative;
+            width: 13em;
+            height: 3em;
+            margin: 2em;
+            border: none;
+            outline: none;
+            letter-spacing: .2em;
+            font-weight: bold;
+            background: #999;
+            cursor: pointer;
+            overflow: hidden;
+            user-select: none;
+            border-radius: 2px;
+            color: #fff;
+        }
+        .ripple {
+            position: absolute;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 100%;
+            transform: scale(0);
+            pointer-events: none;
+        }
+
+        .ripple.show {
+            animation: ripple .75s ease-out;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 1;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .boxyinyingkuosan {
+            /*font-family: Arial;*/
+            color: black;
+            border-radius: 10px;
+            animation: animated-border 1.5s infinite;
+        }
+
+        @keyframes animated-border {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+            }
+        }
+    </style>
+    <script>
+        var addRippleEffect = function (e) {
+            var target = e.target;
+            if (target.className.toLowerCase() !== 'bbbbbtnkuosan') return false;
+            var rect = target.getBoundingClientRect();
+            var ripple = target.querySelector('.ripple');
+            if (!ripple) {
+                ripple = document.createElement('span');
+                ripple.className = 'ripple'
+                ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px'
+                target.appendChild(ripple);
+            }
+            ripple.classList.remove('show');
+            var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+            var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+            ripple.style.top = top + 'px';
+            ripple.style.left = left + 'px';
+            ripple.classList.add('show');
+            return false;
+        }
+        document.addEventListener('click', addRippleEffect, false);
+    </script>
+    <button class="bbbbbtnkuosan boxyinyingkuosan" style="width: 70%;height: 100px;border-radius: 30px;font-size: 32px;font-weight: bold;background-color: white" onclick="location.replace('./index.html')" oncontextmenu="location.replace('./index.html')">重来</button>
+    <button class="bbbbbtnkuosan boxyinyingkuosan" style="width: 70%;height: 100px;border-radius: 30px;font-size: 32px;font-weight: bold;background-color: white" onclick="location.replace('https://wwk.lanzoub.com/iNaBl0fcdj1g')" oncontextmenu="location.replace('https://wwk.lanzoub.com/iNaBl0fcdj1g')">下载源码(蓝奏云)</button>
+</center></div>
+<div style="background-color: red;border-radius: 50%;width: 1px;height: 1px;position:fixed;top: 0;z-index: 20;left: 10px;display: none;transition-timing-function: ease;transition-duration: 1s;" id="hongdian"></div>
+<script>
+    var bcjkdefen = 0;
+    function nishule(){
+        var hongdian=document.getElementById('hongdian');
+        var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        //IE8及以下不支持event
+        var event = event || window.event;
+        //IE浏览器不支持pageX,pageY
+        var pageX = event.pageX || event.clientX + scrollLeft;
+        var pageY = event.pageY || event.clientY + scrollTop;
+        hongdian.style.left = pageX+'px';
+        hongdian.style.top = pageY+'px';
+        hongdian.style.display='block';
+        hongdian.style.width='1px';
+        hongdian.style.height='1px';
+        var divwidth = 50;
+        var divheight = 50;
+        var i=0;
+        var pingmuheight=document.documentElement.clientHeight;
+        pingmuheight=pingmuheight/50*20;
+        setInterval(function (){
+            if (i < pingmuheight) {
+                i++;
+                divwidth += 50;
+                divheight += 50;
+                hongdian.style.left=pageX-divwidth/2+'px';
+                hongdian.style.top=pageY-divheight/2+'px';
+                hongdian.style.width = divwidth + "px";
+                hongdian.style.height = divheight + "px";}else {document.getElementById('jieshu').style.display='block';}}
+        )
+        document.getElementById('wangge').style.display = 'none';
+        document.getElementById('defen').innerHTML = '你的得分是:'+bcjkdefen+'分';
+        document.getElementById('bgmp3').src='./mp3/你干嘛.mp3';
+        document.getElementById('bgmp3').volume = 1;
+        document.getElementById('bgmp3').play();
+    }
+</script>
+<div>
+    <audio src="./mp3/1.mp3" controls style="display: none" id="mp3jikuai"></audio>
+    <audio autoplay="autoplay" controls='controls' loop="loop" preload="auto" src="./mp3/只因你太美.mp3" style="display:none;" id="bgmp3"></audio>
+</div>
+<style>
+  .jikuai{height: 20%;width: 25%;background-color: aqua;position: fixed;transition-timing-function: ease;transition-duration: 0.1s;}
+</style>
+<script>
+    function jikuaileft(){
+        var leftjikuai=Math.round(Math.random()*3);
+        if (leftjikuai == '0'){
+
+            leftjikuai = '0%';
+        }
+        if (leftjikuai == '1'){
+            leftjikuai = '25%';
+        }
+        if (leftjikuai == '2'){
+            leftjikuai = '50%';
+        }
+        if (leftjikuai == '3'){
+            leftjikuai = '75%';
+        }
+        return leftjikuai;
+    }
+    //设定鸡块初始位置
+    document.getElementById('jikuai5').style.left = jikuaileft();
+    document.getElementById('jikuai4').style.left = jikuaileft();
+    document.getElementById('jikuai3').style.left = jikuaileft();
+    document.getElementById('jikuai2').style.left = jikuaileft();
+    document.getElementById('jikuai1').style.left = jikuaileft();//设定鸡块初始位置
+</script>
+<script>
+    var jikuaipanduan = '1';//定义鸡块判断
+    var jikuai1=document.getElementById('jikuai1')//1
+    var jikuai2=document.getElementById('jikuai2')//2
+    var jikuai3=document.getElementById('jikuai3')//3
+    var jikuai4=document.getElementById('jikuai4')//4
+    var jikuai5=document.getElementById('jikuai5')//5
+    var kuaiimg1=document.getElementById('kuaiimg1')//1
+    var kuaiimg2=document.getElementById('kuaiimg2')//2
+    var kuaiimg3=document.getElementById('kuaiimg3')//3
+    var kuaiimg4=document.getElementById('kuaiimg4')//4
+    var kuaiimg5=document.getElementById('kuaiimg5')//5
+    var mp3jikuai = document.getElementById('mp3jikuai');
+    var bgmp3 = document.getElementById('bgmp3');
+    kuaiimg1.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+    kuaiimg2.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+    kuaiimg3.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+    kuaiimg4.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+    kuaiimg5.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+    function niganma(){
+        // mp3jikuai.src = './mp3/你'+Math.round(Math.random()*5)+'.mp3';
+        // mp3jikuai.play();
+    }
+    function kuai1(){
+        if (jikuaipanduan == '1'){
+            jikuai1.style.left = jikuaileft();
+            kuaiimg1.src = './is/坤坤0.png';
+            jikuai1.style.top = '0px';
+            jikuai2.style.top = '80%';
+            jikuai3.style.top = '60%';
+            jikuai4.style.top = '40%';
+            jikuai5.style.top = '20%';
+            jikuaipanduan = '2';
+            kuaiimg1.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+            mp3jikuai.src = './mp3/'+Math.round(Math.random()*5)+'.mp3';
+            mp3jikuai.play();
+            bgmp3.play();
+            bgmp3.volume = 0.01;
+            bcjkdefen++;
+        }else{
+            niganma()
+        }
+    }//点击鸡块1后
+    function kuai2(){
+        if (jikuaipanduan == '2'){
+            jikuai2.style.left = jikuaileft();
+            kuaiimg2.src = './is/坤坤0.png';
+            jikuai2.style.top = '0px';
+            jikuai3.style.top = '80%';
+            jikuai4.style.top = '60%';
+            jikuai5.style.top = '40%';
+            jikuai1.style.top = '20%';
+            jikuaipanduan = '3';
+            kuaiimg2.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+            mp3jikuai.src = './mp3/'+Math.round(Math.random()*5)+'.mp3';
+            mp3jikuai.play();
+            bcjkdefen++;
+        }else{
+            niganma()
+        }
+    }//点击鸡块2后
+    function kuai3(){
+        if (jikuaipanduan == '3'){
+            jikuai3.style.left = jikuaileft();
+            kuaiimg3.src = './is/坤坤0.png';
+            jikuai3.style.top = '0px';
+            jikuai4.style.top = '80%';
+            jikuai5.style.top = '60%';
+            jikuai1.style.top = '40%';
+            jikuai2.style.top = '20%';
+            jikuaipanduan = '4';
+            kuaiimg3.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+            mp3jikuai.src = './mp3/'+Math.round(Math.random()*5)+'.mp3';
+            mp3jikuai.play();
+            bcjkdefen++;
+        }else{
+            niganma()
+        }
+    }//点击鸡块3后
+    function kuai4(){
+        if (jikuaipanduan == '4'){
+            jikuai4.style.left = jikuaileft();
+            kuaiimg4.src = './is/坤坤0.png';
+            jikuai4.style.top = '0px';
+            jikuai5.style.top = '80%';
+            jikuai1.style.top = '60%';
+            jikuai2.style.top = '40%';
+            jikuai3.style.top = '20%';
+            jikuaipanduan = '5';
+            kuaiimg4.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+            mp3jikuai.src = './mp3/'+Math.round(Math.random()*5)+'.mp3';
+            mp3jikuai.play();
+            bcjkdefen++;
+        }else{
+            niganma()
+        }
+    }//点击鸡块4后
+    function kuai5(){
+        if (jikuaipanduan == '5'){
+            jikuai5.style.left = jikuaileft();
+            kuaiimg5.src = './is/坤坤0.png';
+            jikuai5.style.top = '0px';
+            jikuai1.style.top = '80%';
+            jikuai2.style.top = '60%';
+            jikuai3.style.top = '40%';
+            jikuai4.style.top = '20%';
+            jikuaipanduan = '1';
+            kuaiimg5.src = './is/坤坤'+Math.round(Math.random()*20)+'.png';
+            mp3jikuai.src = './mp3/'+Math.round(Math.random()*5)+'.mp3';
+            mp3jikuai.play();
+            bcjkdefen++;
+        }else{
+            niganma()
+        }
+    }//点击鸡块5后
+</script>
+</body>
+</html>
