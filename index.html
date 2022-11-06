@@ -41,6 +41,7 @@
     <h1 style="z-index: 20">你干嘛，哎呦</h1>
     <img src="./is/坤坤8.png" style="z-index: 20;width: 20%;">
     <h1 id="defen">你的得分是:</h1>
+    <h1 id="zuigaodefen">你的最佳得分是:</h1>
     <style>
         .bbbbbtnkuosan {
             position: relative;
@@ -121,6 +122,38 @@
     <button class="bbbbbtnkuosan boxyinyingkuosan" style="width: 70%;height: 100px;border-radius: 30px;font-size: 32px;font-weight: bold;background-color: white" onclick="location.replace('https://wwk.lanzoub.com/iNaBl0fcdj1g')" oncontextmenu="location.replace('https://wwk.lanzoub.com/iNaBl0fcdj1g')">下载源码(蓝奏云)</button>
     <button class="bbbbbtnkuosan boxyinyingkuosan" style="width: 70%;height: 100px;border-radius: 30px;font-size: 32px;font-weight: bold;background-color: white" onclick="location.replace('https://github.com/gxlydlyf/Don-t-step-on-chicken-nuggets')" oncontextmenu="location.replace('https://github.com/gxlydlyf/Don-t-step-on-chicken-nuggets')">Github项目</button>
 </center></div>
+<script>
+    function setCookie(cname,cvalue,exdays){
+        var d = new Date();
+        d.setTime(d.getTime()+(exdays*24*60*60*1000));
+        var expires = "expires="+d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+    }
+    function getCookie(cname){
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+        }
+        return "";
+    }
+    function checkCookie(){
+        var zjdefen=getCookie("zjdefen");
+        if (zjdefen!=""){
+            if (bcjkdefen>zjdefen){
+                setCookie("zjdefen",bcjkdefen,30);
+            }
+            zjdefen=getCookie("zjdefen");
+            document.getElementById('zuigaodefen').innerHTML = '你的最佳得分是:'+zjdefen+'分';
+        }
+        else {
+            setCookie("zjdefen",bcjkdefen,30);
+            zjdefen=getCookie("zjdefen");
+            document.getElementById('zuigaodefen').innerHTML = '你的最佳得分是:'+zjdefen+'分';
+        }
+    }
+</script>
 <div style="background-color: red;border-radius: 50%;width: 1px;height: 1px;position:fixed;top: 0;z-index: 20;left: 10px;display: none;transition-timing-function: ease;transition-duration: 1s;" id="hongdian"></div>
 <script>
     var bcjkdefen = 0;
@@ -158,6 +191,7 @@
         document.getElementById('bgmp3').src='./mp3/你干嘛.mp3';
         document.getElementById('bgmp3').volume = 1;
         document.getElementById('bgmp3').play();
+        checkCookie()
     }
 </script>
 <div>
